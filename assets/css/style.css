@@ -278,3 +278,28 @@ header{
 /* -------- Small animation helpers -------- */
 .ui-fade-in{ animation: ui-fade .18s ease both; }
 @keyframes ui-fade{ from{opacity:0; transform: translateY(4px);} to{opacity:1; transform:none;} }
+/* --- Light border override (applies everywhere using Tailwind `.border`) --- */
+:root{
+  /* Lighter borders in light mode */
+  --ui-border: #f3f4f6;        /* gray-100 */
+  --ui-border-strong: #e5e7eb; /* gray-200 */
+}
+.dark{
+  /* Subtle, lighter borders in dark mode */
+  --ui-border: rgba(255,255,255,.14);
+  --ui-border-strong: rgba(255,255,255,.20);
+}
+
+/* Force lighter border color wherever `.border` is used */
+.border{ border-color: var(--ui-border) !important; }
+
+/* Ensure common surfaces also pick the lighter border instantly */
+.bg-white.border,
+.dark .bg-gray-800.border,
+.ui-card,
+.ui-chart,
+.ui-modal,
+.ui-alert,
+.ui-table{
+  border-color: var(--ui-border) !important;
+}
