@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini CRM - Contacts</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
+  <header class="p-4 flex items-center justify-between bg-white dark:bg-gray-800 shadow">
+    <div class="flex items-center gap-2">
+      <img src="assets/img/logoipsum-395.svg" alt="Logo" class="h-8">
+      <h1 class="text-xl font-bold">Contacts</h1>
+    </div>
+    <nav class="space-x-4 text-sm">
+      <a href="index.html">Dashboard</a>
+      <a href="leads.html">Leads</a>
+      <a href="contacts.html" class="font-semibold">Contacts</a>
+      <a href="timeline.html">Timeline</a>
+      <a href="preferences.html">Preferences</a>
+      <a href="help.html">Help</a>
+    </nav>
+  </header>
+
+  <main class="p-6">
+    <div class="flex items-center justify-between mb-4">
+      <div class="text-lg font-semibold">All Contacts</div>
+      <button id="addContact" class="px-4 py-2 bg-green-600 text-white rounded-lg">Add Contact</button>
+    </div>
+    <div id="contactList" class="grid gap-3"></div>
+  </main>
+
+  <div id="contactModal" class="fixed inset-0 hidden items-center justify-center bg-black/50 p-4 z-50">
+    <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 w-full max-w-xl">
+      <div id="contactModalTitle" class="text-lg font-semibold mb-4">New Contact</div>
+      <form id="contactForm" class="grid gap-3">
+        <div class="grid gap-1">
+          <label class="text-sm">Name</label>
+          <input id="cName" class="border rounded px-3 py-2 bg-white dark:bg-gray-900" placeholder="Full name"/>
+        </div>
+        <div class="grid gap-1">
+          <label class="text-sm">Email</label>
+          <input id="cEmail" type="email" class="border rounded px-3 py-2 bg-white dark:bg-gray-900" placeholder="name@example.com"/>
+        </div>
+        <div class="grid gap-1">
+          <label class="text-sm">Phone</label>
+          <input id="cPhone" class="border rounded px-3 py-2 bg-white dark:bg-gray-900" placeholder="+91"/>
+        </div>
+        <div class="grid gap-1">
+          <label class="text-sm">Company</label>
+          <input id="cCompany" class="border rounded px-3 py-2 bg-white dark:bg-gray-900" placeholder="Company"/>
+        </div>
+        <div class="grid gap-1">
+          <label class="text-sm">Position</label>
+          <input id="cPosition" class="border rounded px-3 py-2 bg-white dark:bg-gray-900" placeholder="Role"/>
+        </div>
+        <div class="grid gap-1">
+          <label class="text-sm">Address</label>
+          <input id="cAddress" class="border rounded px-3 py-2 bg-white dark:bg-gray-900" placeholder="Address"/>
+        </div>
+        <div class="grid gap-1">
+          <label class="text-sm">Tags (comma-separated)</label>
+          <input id="cTags" class="border rounded px-3 py-2 bg-white dark:bg-gray-900" placeholder="vip, repeat"/>
+        </div>
+        <div class="grid gap-1">
+          <label class="text-sm">Notes</label>
+          <textarea id="cNotes" class="border rounded px-3 py-2 bg-white dark:bg-gray-900" rows="3"></textarea>
+        </div>
+        <div class="flex justify-end gap-2 pt-2">
+          <button type="button" id="cancelContactBtn" class="px-4 py-2 rounded border">Cancel</button>
+          <button type="submit" id="saveContactBtn" class="px-4 py-2 bg-green-600 text-white rounded">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/js/app.js" defer></script>
+  <script src="assets/js/contacts.js" defer></script>
+</body>
+</html>

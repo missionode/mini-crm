@@ -1,0 +1,280 @@
+/* ==========================================================================
+   Mini CRM UI Utilities (light borders, soft shadows, clean surfaces)
+   Palette uses Tailwind colors; dark mode respects .dark on <html>.
+   No @apply; pure CSS, ready to mix with Tailwind utilities.
+   ========================================================================== */
+
+/* -------- CSS Variables -------- */
+:root{
+  /* Radii */
+  --ui-radius-sm: .5rem;      /* ~rounded-lg */
+  --ui-radius: .75rem;        /* ~rounded-xl */
+  --ui-radius-lg: 1rem;       /* ~rounded-2xl */
+
+  /* Colors (Tailwind palette hexes) */
+  --ui-bg: #ffffff;
+  --ui-surface: #ffffff;
+  --ui-border: #e5e7eb;       /* gray-200 */
+  --ui-border-strong: #d1d5db;/* gray-300 */
+  --ui-text: #111827;         /* gray-900 */
+  --ui-muted: #6b7280;        /* gray-500 */
+
+  --ui-primary: #2563eb;      /* blue-600 */
+  --ui-primary-600: #2563eb;
+  --ui-primary-700: #1d4ed8;
+  --ui-primary-100: #dbeafe;
+
+  --ui-success: #10b981;      /* emerald-500 */
+  --ui-success-600: #059669;
+  --ui-success-100: #d1fae5;
+
+  --ui-warning: #f59e0b;      /* amber-500 */
+  --ui-warning-600: #d97706;
+  --ui-warning-100: #fef3c7;
+
+  --ui-danger: #ef4444;       /* red-500 */
+  --ui-danger-600: #dc2626;
+  --ui-danger-100: #fee2e2;
+
+  --ui-indigo: #6366f1;       /* indigo-500 */
+  --ui-indigo-100: #e0e7ff;
+
+  --ui-gray-50:#f9fafb;
+  --ui-gray-100:#f3f4f6;
+  --ui-gray-200:#e5e7eb;
+  --ui-gray-700:#374151;
+  --ui-gray-800:#1f2937;
+  --ui-gray-900:#111827;
+
+  /* Shadows */
+  --ui-shadow-sm: 0 1px 2px rgba(17,24,39,.06);
+  --ui-shadow:    0 1px 3px rgba(17,24,39,.08), 0 1px 2px rgba(17,24,39,.06);
+  --ui-shadow-lg: 0 10px 15px rgba(17,24,39,.10), 0 4px 6px rgba(17,24,39,.05);
+
+  /* Focus ring */
+  --ui-ring: 0 0 0 3px rgba(37, 99, 235, .25); /* blue-600 @ 25% */
+}
+
+.dark{
+  --ui-bg: var(--ui-gray-900);
+  --ui-surface: var(--ui-gray-800);
+  --ui-border: #374151;         /* gray-700 */
+  --ui-border-strong: #4b5563;  /* gray-600 */
+  --ui-text: #f3f4f6;           /* gray-100 */
+  --ui-muted: #9ca3af;          /* gray-400 */
+
+  --ui-shadow-sm: 0 1px 2px rgba(0,0,0,.35);
+  --ui-shadow:    0 2px 8px rgba(0,0,0,.35);
+  --ui-shadow-lg: 0 20px 40px rgba(0,0,0,.45);
+
+  --ui-ring: 0 0 0 3px rgba(59,130,246,.25); /* blue-500 @ 25% */
+}
+
+/* -------- Cards & Surfaces -------- */
+.ui-card{
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius-lg);
+  box-shadow: var(--ui-shadow);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.ui-card:hover{
+  transform: translateY(-1px);
+  box-shadow: var(--ui-shadow-lg);
+  border-color: var(--ui-border-strong);
+}
+.ui-card--subtle{
+  background: linear-gradient(180deg, rgba(249,250,251,.7), rgba(255,255,255,.8));
+  border: 1px solid var(--ui-border);
+}
+.ui-section{
+  background: var(--ui-bg);
+}
+
+/* -------- Soft Borders / Dividers -------- */
+.ui-border{
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius);
+}
+.ui-divider{
+  height:1px;
+  width:100%;
+  background: linear-gradient(90deg, transparent, var(--ui-border), transparent);
+}
+
+/* -------- Buttons -------- */
+.ui-btn{
+  -webkit-tap-highlight-color: transparent;
+  display: inline-flex; align-items: center; justify-content: center; gap:.5rem;
+  padding: .6rem .9rem;
+  border-radius: .8rem;
+  border: 1px solid transparent;
+  font-weight: 600;
+  line-height: 1;
+  transition: transform .15s ease, box-shadow .2s ease, background-color .2s ease, border-color .2s ease, color .2s ease, opacity .2s ease;
+  cursor: pointer;
+  box-shadow: var(--ui-shadow-sm);
+}
+.ui-btn:focus-visible{ outline: none; box-shadow: var(--ui-shadow), var(--ui-ring); }
+.ui-btn:disabled{ opacity:.6; cursor:not-allowed; }
+
+/* Variants */
+.ui-btn--primary{ background: var(--ui-primary-600); color:#fff; }
+.ui-btn--primary:hover{ background: var(--ui-primary-700); transform: translateY(-1px); }
+.ui-btn--success{ background: var(--ui-success); color:#06281d; }
+.ui-btn--success:hover{ background: var(--ui-success-600); color:#fff; transform: translateY(-1px); }
+.ui-btn--neutral{ background: var(--ui-gray-100); color:#111827; border-color: var(--ui-border); }
+.dark .ui-btn--neutral{ background:#2a2f3a; color:#e5e7eb; border-color: var(--ui-border); }
+.ui-btn--neutral:hover{ transform: translateY(-1px); }
+.ui-btn--danger{ background: var(--ui-danger); color:#fff; }
+.ui-btn--danger:hover{ background: var(--ui-danger-600); transform: translateY(-1px); }
+
+/* Ghost / Outline */
+.ui-btn--ghost{ background: transparent; color: var(--ui-primary-600); border-color: var(--ui-primary-100); }
+.ui-btn--ghost:hover{ background: var(--ui-primary-100); }
+
+/* Sizes */
+.ui-btn--sm{ padding:.45rem .7rem; border-radius:.7rem; font-weight:600; }
+.ui-btn--lg{ padding:.8rem 1.1rem; border-radius:1rem; font-weight:700; }
+
+/* -------- Inputs -------- */
+.ui-input, .ui-select, .ui-textarea{
+  width: 100%;
+  background: var(--ui-surface);
+  color: var(--ui-text);
+  border: 1px solid var(--ui-border);
+  border-radius: .75rem;
+  padding: .6rem .8rem;
+  line-height: 1.2;
+  transition: border-color .15s ease, box-shadow .15s ease, background-color .15s ease;
+  box-shadow: inset 0 1px 0 rgba(17,24,39,.03);
+}
+.ui-input::placeholder, .ui-textarea::placeholder{ color: var(--ui-muted); }
+.ui-input:focus, .ui-select:focus, .ui-textarea:focus{ outline: none; border-color:#93c5fd; box-shadow: var(--ui-ring); }
+.ui-input[disabled], .ui-select[disabled], .ui-textarea[disabled]{ opacity:.6; cursor:not-allowed; }
+.ui-input--invalid{ border-color: var(--ui-danger); }
+
+/* Input sizes */
+.ui-input--sm{ padding:.45rem .7rem; border-radius:.6rem; }
+.ui-input--lg{ padding:.8rem 1rem; border-radius:1rem; }
+
+/* -------- Badges (Lead stages etc.) -------- */
+.ui-badge{
+  display:inline-flex; align-items:center; gap:.35rem;
+  font-size:.75rem; line-height:1; font-weight:600;
+  padding:.35rem .5rem; border-radius:999px;
+  border:1px solid transparent;
+}
+.ui-badge--new{ background:#f3f4f6; color:#374151; border-color:#e5e7eb; }          /* gray */
+.ui-badge--contacted{ background:#fef3c7; color:#92400e; border-color:#fde68a; }   /* amber */
+.ui-badge--qualified{ background:#e0e7ff; color:#3730a3; border-color:#c7d2fe; }   /* indigo */
+.ui-badge--won{ background:#d1fae5; color:#065f46; border-color:#a7f3d0; }         /* emerald */
+.ui-badge--lost{ background:#fee2e2; color:#991b1b; border-color:#fecaca; }        /* red */
+
+.dark .ui-badge--new{ background:#111827; color:#d1d5db; border-color:#374151; }
+.dark .ui-badge--contacted{ background:#2b1f07; color:#fbbf24; border-color:#7c4a00; }
+.dark .ui-badge--qualified{ background:#1e1e3f; color:#c7d2fe; border-color:#4338ca; }
+.dark .ui-badge--won{ background:#0b2e26; color:#a7f3d0; border-color:#065f46; }
+.dark .ui-badge--lost{ background:#3b0a0a; color:#fecaca; border-color:#7f1d1d; }
+
+/* -------- Modals -------- */
+.ui-modal-backdrop{
+  position: fixed; inset: 0; z-index: 40;
+  background: rgba(0,0,0,.45);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+.ui-modal{
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-border);
+  border-radius: 1rem;
+  box-shadow: var(--ui-shadow-lg);
+}
+.ui-modal__title{
+  font-size: 1.05rem; font-weight: 700; color: var(--ui-text);
+}
+
+/* -------- Navigation Enhancements -------- */
+.ui-nav-current{
+  background: var(--ui-primary-100);
+  color: var(--ui-primary-700);
+  border-radius: 999px;
+  padding: .25rem .6rem;
+}
+.dark .ui-nav-current{
+  background: rgba(37,99,235,.18);
+  color: #bfdbfe;
+}
+
+/* -------- Hover Lift (utility you can add to cards/buttons) -------- */
+.ui-hover-lift{ transition: transform .2s ease, box-shadow .2s ease; box-shadow: var(--ui-shadow); }
+.ui-hover-lift:hover{ transform: translateY(-2px); box-shadow: var(--ui-shadow-lg); }
+
+/* -------- Chart wrappers (visual polish) -------- */
+.ui-chart{
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius);
+  box-shadow: var(--ui-shadow-sm);
+}
+.ui-chart__caption{
+  color: var(--ui-muted);
+  font-size: .75rem;
+}
+
+/* -------- Helpful spacing helpers -------- */
+.ui-stack-sm > * + *{ margin-top:.25rem; }
+.ui-stack > * + *{ margin-top:.5rem; }
+.ui-stack-lg > * + *{ margin-top:1rem; }
+
+/* -------- Table polish (if you add any later) -------- */
+.ui-table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  background: var(--ui-surface);
+  border:1px solid var(--ui-border);
+  border-radius: var(--ui-radius);
+  overflow:hidden;
+  box-shadow: var(--ui-shadow-sm);
+}
+.ui-table thead th{
+  text-align:left; font-weight:700; font-size:.85rem;
+  color: var(--ui-muted);
+  background: var(--ui-gray-50);
+  padding:.75rem .9rem; border-bottom:1px solid var(--ui-border);
+}
+.dark .ui-table thead th{ background:#111827; color:#9ca3af; }
+.ui-table tbody td{
+  padding:.75rem .9rem; border-bottom:1px solid var(--ui-border);
+}
+.ui-table tbody tr:hover{ background: rgba(59,130,246,.03); }
+.dark .ui-table tbody tr:hover{ background: rgba(59,130,246,.08); }
+
+/* -------- Toast / Alert (optional helper) -------- */
+.ui-alert{
+  border:1px solid var(--ui-border);
+  border-left-width:4px;
+  border-radius: var(--ui-radius);
+  padding:.75rem .9rem;
+  box-shadow: var(--ui-shadow-sm);
+  background: var(--ui-surface);
+}
+.ui-alert--info{ border-left-color: var(--ui-primary-600); }
+.ui-alert--success{ border-left-color: var(--ui-success); }
+.ui-alert--warning{ border-left-color: var(--ui-warning); }
+.ui-alert--danger{ border-left-color: var(--ui-danger); }
+
+/* -------- Subtle page background -------- */
+body{
+  background: linear-gradient(180deg, var(--ui-gray-50), #ffffff);
+}
+
+/* -------- Header soft shadow -------- */
+header{
+  box-shadow: 0 1px 0 var(--ui-border), 0 8px 20px rgba(17,24,39,.04);
+}
+
+/* -------- Small animation helpers -------- */
+.ui-fade-in{ animation: ui-fade .18s ease both; }
+@keyframes ui-fade{ from{opacity:0; transform: translateY(4px);} to{opacity:1; transform:none;} }

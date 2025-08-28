@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini CRM - Help</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
+  <header class="p-4 flex items-center justify-between bg-white dark:bg-gray-800 shadow">
+    <div class="flex items-center gap-2">
+      <img src="assets/img/logoipsum-395.svg" alt="Logo" class="h-8">
+      <h1 id="helpPageTitle" class="text-xl font-bold"></h1>
+    </div>
+    <nav class="space-x-4 text-sm">
+      <a href="index.html">Dashboard</a>
+      <a href="leads.html">Leads</a>
+      <a href="contacts.html">Contacts</a>
+      <a href="timeline.html">Timeline</a>
+      <a href="preferences.html">Preferences</a>
+      <a href="help.html" class="font-semibold">Help</a>
+    </nav>
+  </header>
+
+  <main class="p-6">
+    <section class="mb-8">
+      <div class="flex items-center justify-between">
+        <div>
+          <div id="helpAppName" class="text-2xl font-semibold"></div>
+          <p id="helpTagline" class="text-gray-600 dark:text-gray-400"></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid gap-8 md:grid-cols-12">
+      <aside class="md:col-span-3">
+        <div class="sticky top-4 bg-white dark:bg-gray-800 border rounded-xl p-4">
+          <div class="text-sm font-semibold mb-2">Contents</div>
+          <nav id="helpTOC" class="text-sm space-y-2"></nav>
+        </div>
+      </aside>
+
+      <section class="md:col-span-9 prose dark:prose-invert max-w-none">
+        <div id="helpContent" class="space-y-10"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="assets/js/app.js" defer></script>
+  <script src="assets/js/help.js" defer></script>
+</body>
+</html>

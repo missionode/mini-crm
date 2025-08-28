@@ -1,0 +1,121 @@
+{
+  "appName": "Mini CRM",
+  "tagline": "Track leads, contacts, and interactions",
+  "address": "123 Business St, Kochi, India",
+  "phone": "+91 98765 43210",
+  "supportEmail": "support@minicrm.example",
+  "help": {
+    "pageTitle": "Help & Documentation",
+    "gettingStarted": {
+      "title": "Getting Started",
+      "intro": "Mini CRM is a simple, local-first CRM to keep track of leads, contacts, and interactions.",
+      "bullets": [
+        "Open Preferences to toggle dark mode and manage backups.",
+        "Use Contacts to save people and companies you speak to.",
+        "Use Leads to track opportunities and set a Next Action Date for follow-ups.",
+        "Use Timeline to log calls, emails, meetings, and notes.",
+        "Dashboard shows items due today, overdue, quick stats, and recent activity."
+      ],
+      "notes": [
+        "All data is stored locally in your browser (LocalStorage). Export regularly."
+      ]
+    },
+    "leads": {
+      "title": "Leads",
+      "intro": "Leads represent opportunities (a project, a deal, or any potential sale).",
+      "bullets": [
+        "Click Add Lead to create a new lead with title, company, optional linked contact, stage, value, and Next Action Date.",
+        "Set a Next Action Date to make the lead appear in Dashboard sections.",
+        "Stages include New, Contacted, Qualified, Won, and Lost.",
+        "Edit any lead from the Leads list; updates save instantly to local storage."
+      ]
+    },
+    "contacts": {
+      "title": "Contacts",
+      "intro": "Contacts are people you talk to. You can attach a contact to a lead.",
+      "bullets": [
+        "Click Add Contact and fill in the basics (name, email, phone, company, position).",
+        "Use tags like vip or repeat to group customers.",
+        "Edit contact details anytime; changes reflect wherever the contact is referenced."
+      ]
+    },
+    "interactions": {
+      "title": "Interactions & Timeline",
+      "intro": "Log calls, emails, meetings, and notes in Timeline. Optionally link them to a lead or a contact.",
+      "bullets": [
+        "Add Interaction and pick a type. Link to Lead or Contact for context.",
+        "Set Next Action Date on an interaction to update that lead’s follow-up date.",
+        "Filter by type or by linked entity to focus the list."
+      ],
+      "notes": [
+        "Timeline is ordered by most recent first."
+      ]
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "intro": "Your daily command center.",
+      "bullets": [
+        "Due Today lists leads whose Next Action Date equals today.",
+        "Overdue shows leads with a past Next Action Date.",
+        "Quick Stats summarizes lead counts by stage.",
+        "Recent Interactions shows the latest activity across leads and contacts."
+      ]
+    },
+    "preferences": {
+      "title": "Preferences",
+      "intro": "Control appearance and data safety.",
+      "bullets": [
+        "Toggle dark mode.",
+        "Export JSON to download a complete backup.",
+        "Import JSON to restore a backup.",
+        "Use testing utilities to seed demo data or create quick due/overdue items."
+      ]
+    },
+    "importExport": {
+      "title": "Import and Export",
+      "intro": "Your data is yours. Back it up and restore it easily.",
+      "bullets": [
+        "Export JSON creates a single file containing leads, contacts, and interactions.",
+        "Import JSON replaces your current data with the file you choose.",
+        "Clear Data removes all local records to reset the app."
+      ],
+      "notes": [
+        "If the File System Access API is not supported in your browser, downloads still work via a standard file save."
+      ]
+    },
+    "faq": [
+      {
+        "q": "Why does Dashboard say Nothing due today?",
+        "a": "Because no lead has a Next Action Date equal to today. Set a lead’s Next Action Date or use Preferences → Testing Utilities to add a lead due today."
+      },
+      {
+        "q": "Where is my data stored?",
+        "a": "All data lives in your browser’s LocalStorage. Use Export JSON regularly to keep manual backups."
+      },
+      {
+        "q": "Can I link multiple contacts to a lead?",
+        "a": "This mini-app links a single primary contact per lead for simplicity."
+      },
+      {
+        "q": "How do I mark a deal as won or lost?",
+        "a": "Edit the lead and change the Stage to Won or Lost."
+      },
+      {
+        "q": "What happens when I set Next Action Date on an interaction?",
+        "a": "If the interaction is linked to a lead, the lead’s Next Action Date is updated to match."
+      }
+    ],
+    "privacy": {
+      "title": "Your Data & Privacy",
+      "intro": "This app does not send your data to a server.",
+      "bullets": [
+        "Everything is stored locally in your browser.",
+        "You control backups with Export/Import JSON."
+      ]
+    },
+    "support": {
+      "title": "Contact & Support",
+      "intro": "Having trouble or want to suggest an improvement? Reach out using the details below."
+    }
+  }
+}

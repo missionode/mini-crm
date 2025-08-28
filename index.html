@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini CRM - Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
+  <header class="p-4 flex items-center justify-between bg-white dark:bg-gray-800 shadow">
+    <div class="flex items-center gap-2">
+      <img src="assets/img/logoipsum-395.svg" alt="Logo" class="h-8">
+      <h1 id="appName" class="text-xl font-bold"></h1>
+    </div>
+    <nav class="space-x-4 text-sm">
+      <a href="index.html" class="font-semibold">Dashboard</a>
+      <a href="leads.html">Leads</a>
+      <a href="contacts.html">Contacts</a>
+      <a href="timeline.html">Timeline</a>
+      <a href="preferences.html">Preferences</a>
+      <a href="help.html">Help</a>
+    </nav>
+  </header>
+
+  <main class="p-6">
+    <div class="grid gap-6 md:grid-cols-3">
+      <section class="md:col-span-2">
+        <h2 class="text-lg font-semibold mb-3">Due Today</h2>
+        <div id="dueToday" class="grid gap-3"></div>
+      </section>
+
+      <aside class="md:col-span-1 space-y-6">
+        <div>
+          <h2 class="text-lg font-semibold mb-3">Quick Stats</h2>
+          <div id="quickStats" class="grid gap-3"></div>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-xl border p-4">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="text-sm font-semibold">Leads by Stage</h3>
+            <div id="donutTotal" class="text-xs text-gray-500"></div>
+          </div>
+          <div id="chartStageDonut" class="w-full h-48"></div>
+          <div id="donutLegend" class="mt-2 grid grid-cols-2 gap-2 text-xs"></div>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-xl border p-4">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="text-sm font-semibold">Activity (14 days)</h3>
+            <div id="sparkSummary" class="text-xs text-gray-500"></div>
+          </div>
+          <div id="chartActivitySpark" class="w-full h-24"></div>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-xl border p-4">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="text-sm font-semibold">Upcoming Due (7 days)</h3>
+            <div id="dueSummary" class="text-xs text-gray-500"></div>
+          </div>
+          <div id="chartDueBars" class="w-full h-28"></div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-2 mt-8">
+      <section>
+        <h2 class="text-lg font-semibold mb-3">Overdue</h2>
+        <div id="overdueList" class="grid gap-3"></div>
+      </section>
+      <section>
+        <div class="flex items-center justify-between">
+          <h2 class="text-lg font-semibold mb-3">Recent Interactions</h2>
+          <a href="timeline.html" class="text-sm underline">Open Timeline</a>
+        </div>
+        <div id="recentInteractions" class="grid gap-3"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini CRM - Timeline</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
+  <header class="p-4 flex items-center justify-between bg-white dark:bg-gray-800 shadow">
+    <div class="flex items-center gap-2">
+      <img src="assets/img/logoipsum-395.svg" alt="Logo" class="h-8">
+      <h1 class="text-xl font-bold">Timeline</h1>
+    </div>
+    <nav class="space-x-4 text-sm">
+      <a href="index.html">Dashboard</a>
+      <a href="leads.html">Leads</a>
+      <a href="contacts.html">Contacts</a>
+      <a href="timeline.html" class="font-semibold">Timeline</a>
+      <a href="preferences.html">Preferences</a>
+      <a href="help.html">Help</a>
+    </nav>
+  </header>
+
+  <main class="p-6">
+    <div class="flex items-center justify-between mb-4">
+      <div class="flex gap-2 items-end">
+        <div>
+          <label class="text-xs block mb-1">Type</label>
+          <select id="filterType" class="border rounded px-2 py-1 bg-white dark:bg-gray-900">
+            <option value="">All</option>
+            <option>call</option>
+            <option>email</option>
+            <option>meeting</option>
+            <option>note</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-xs block mb-1">Linked To</label>
+          <select id="filterLink" class="border rounded px-2 py-1 bg-white dark:bg-gray-900">
+            <option value="">Any</option>
+            <option value="lead">Lead</option>
+            <option value="contact">Contact</option>
+          </select>
+        </div>
+      </div>
+      <button id="addInteraction" class="px-4 py-2 bg-indigo-600 text-white rounded-lg">Add Interaction</button>
+    </div>
+
+    <div id="timelineList" class="space-y-3"></div>
+  </main>
+
+  <div id="interactionModal" class="fixed inset-0 hidden items-center justify-center bg-black/50 p-4 z-50">
+    <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 w-full max-w-xl">
+      <div id="interactionModalTitle" class="text-lg font-semibold mb-4">New Interaction</div>
+      <form id="interactionForm" class="grid gap-3">
+        <div class="grid gap-1">
+          <label class="text-sm">Date/Time</label>
+          <input id="iDate" type="datetime-local" class="border rounded px-3 py-2 bg-white dark:bg-gray-900"/>
+        </div>
+        <div class="grid gap-1">
+          <label class="text-sm">Type</label>
+          <select id="iType" class="border rounded px-3 py-2 bg-white dark:bg-gray-900">
+            <option>call</option>
+            <option>email</option>
+            <option>meeting</option>
+            <option>note</option>
+          </select>
+        </div>
+        <div class="grid gap-1">
+          <label class="text-sm">Link To</label>
+          <select id="iLinkKind" class="border rounded px-3 py-2 bg-white dark:bg-gray-900">
+            <option value="">None</option>
+            <option value="lead">Lead</option>
+            <option value="contact">Contact</option>
+          </select>
+        </div>
+        <div class="grid gap-1" id="iLinkWrap">
+          <label class="text-sm">Choose Lead/Contact</label>
+          <select id="iLinkId" class="border rounded px-3 py-2 bg-white dark:bg-gray-900"></select>
+        </div>
+        <div class="grid gap-1">
+          <label class="text-sm">Summary</label>
+          <textarea id="iSummary" rows="3" class="border rounded px-3 py-2 bg-white dark:bg-gray-900" placeholder="What happened?"></textarea>
+        </div>
+        <div class="grid gap-1">
+          <label class="text-sm">Next Action Date (optional)</label>
+          <input id="iNextDate" type="date" class="border rounded px-3 py-2 bg-white dark:bg-gray-900"/>
+        </div>
+        <div class="flex justify-end gap-2 pt-2">
+          <button type="button" id="cancelInteraction" class="px-4 py-2 rounded border">Cancel</button>
+          <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/js/app.js" defer></script>
+  <script src="assets/js/timeline.js" defer></script>
+</body>
+</html>
